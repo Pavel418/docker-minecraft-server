@@ -2,13 +2,29 @@ services:
   mc:
     image: itzg/minecraft-server
     environment:
+      SERVER_NAME: ""
+      SEED: ""
+      ICON: ""
+      WHITELIST_FILE: ""
+      OVERRIDE_ICON: "true"
       EULA: "true"
+      MEMORY: "12G"
+      LOG_TIMESTAMP: "true"
+      TYPE: "FABRIC"
+      VERSION: "1.20.6"
+      DIFFICULTY: "hard"
+      MAX_PLAYERS: "100"
+      MAX_WORLD_SIZE: "50000"
+      MAX_BUILD_HEIGHT: "320"
+      ONLINE_MODE: "false"
+      STOP_SERVER_ANNOUNCE_DELAY: "300"
+      ENABLE_WHITELIST: "true"
+      ENABLE_AUTOPAUSE: "true"
+      AUTOPAUSE_TIMEOUT_EST: "1800"
     ports:
       - "25565:25565"
     volumes:
-      - data:/data
+      - ./data:/data
     stdin_open: true
     tty: true
     restart: unless-stopped
-volumes:
-  data: {}
